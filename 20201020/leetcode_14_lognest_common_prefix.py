@@ -8,18 +8,22 @@ class Solution:
         return self.get_longest_common_prefix(common_prefix)
 
     def get_common_prefix(self, strs: List[str]) -> List[Set]:
-        strs.sort(key=lambda x: len(x))
+        minimum_str_length = len(strs[0])
+
+        for string in strs:
+            if minimum_str_length > len(string):
+                minimum_str_length = len(string)
+
         common_prefix = list()
 
         for string in strs:
-            for index, character in enumerate(string):
+            for index, character in enumerate(string[:minimum_str_length]):
                 try:
                     common_prefix[index].add(character)
                 except IndexError:
                     common_prefix.append({character})
                 
-        minimum_str_length = len(strs[0])
-        return common_prefix[:minimum_str_length]
+        return common_prefix
 
     def get_longest_common_prefix(self, common_prefix: List[Set]) -> str:
         longest_common_prefix = ""
