@@ -2,6 +2,8 @@ from typing import List, Set
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
+        if not len(strs):
+            return ""
         common_prefix = self.get_common_prefix(strs)
         return self.get_longest_common_prefix(common_prefix)
 
@@ -16,10 +18,8 @@ class Solution:
                 except IndexError:
                     common_prefix.append({character})
                 
-        if strs:
-            minimum_str_length = len(strs[0])
-            return common_prefix[:minimum_str_length]
-        return []
+        minimum_str_length = len(strs[0])
+        return common_prefix[:minimum_str_length]
 
     def get_longest_common_prefix(self, common_prefix: List[Set]) -> str:
         longest_common_prefix = ""
