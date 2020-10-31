@@ -1,11 +1,11 @@
-from typing import List
+from typing import List, Set
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         common_prefix = self.get_common_prefix(strs)
         return self.get_longest_common_prefix(common_prefix)
 
-    def get_common_prefix(self, strs):
+    def get_common_prefix(self, strs: List[str]) -> List[Set]:
         strs.sort(key=lambda x: len(x))
         common_prefix = list()
 
@@ -21,7 +21,7 @@ class Solution:
             return common_prefix[:minimum_str_length]
         return []
 
-    def get_longest_common_prefix(self, common_prefix):
+    def get_longest_common_prefix(self, common_prefix: List[Set]) -> str:
         longest_common_prefix = ""
 
         for prefix in common_prefix:
