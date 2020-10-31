@@ -2,10 +2,43 @@ from typing import List
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        return 'a'
+        common_prefix = self.get_common_prefix(strs)
+        return self.get_longest_common_prefix(common_prefix)
+
+    def get_common_prefix(self, strs):
+        strs.sort(key=lambda x: len(x))
+        common_prefix = list()
+
+        for string in strs:
+            for index, character in enumerate(string):
+                try:
+                    common_prefix[index].add(character)
+                except IndexError:
+                    common_prefix.append({character})
+                
+        if strs:
+            minimum_str_length = len(strs[0])
+            return common_prefix[:minimum_str_length]
+        return []
+
+    def get_longest_common_prefix(self, common_prefix):
+        longest_common_prefix = ""
+
+        for prefix in common_prefix:
+            if len(prefix) >= 2:
+                break
+            longest_common_prefix += prefix.pop()
+        return longest_common_prefix
 
 
 def test_longestCommonPrefix():
     solution = Solution()
 
-    assert solution.longestCommonPrefix(['a']) == 'aa'
+    assert solution.longestCommonPrefix(["flower", "flow", "flight"]) == 'fl'
+    assert solution.longestCommonPrefix(["flower", "flow"]) == 'flow'
+    assert solution.longestCommonPrefix([]) == ''
+    assert solution.longestCommonPrefix(["dog","racecar","car"]) == ''
+
+if __name__ == "__main__":
+    solution = Solution()
+    solution.longestCommonPrefix(["reflower","flow","flight"])
