@@ -6,3 +6,12 @@ If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
 If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
 In either case, this is followed by: for k in F:  D[k] = F[k]
 """
+
+dict_ = {}
+dict_.update({1: "one", 2: "two"})
+
+print(dict_)
+
+dict_.update([(3, "three"), (4, "four")])
+
+print(dict_)
