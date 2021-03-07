@@ -2,9 +2,13 @@
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
         "--line-length",
-        "150"
+        "150",
+        "fmt",
+        "on"
     ],
     "python.pythonPath": "/Users/jangjichang/Library/Caches/pypoetry/virtualenvs/justcode-04-wEf7E-py3.9/bin/python",
     "editor.formatOnSave": true,
     "editor.tabSize": 4
 }
+// --line-length 150 -> 한 줄에 최대 150글자 가능
+// fmt on -> 줄 바꿈 하지 않음
