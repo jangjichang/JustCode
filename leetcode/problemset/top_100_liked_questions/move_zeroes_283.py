@@ -11,8 +11,7 @@ class Solution:
             if nums[index] != 0:
                 nums[index], nums[last_none_zero_found_at] = nums[last_none_zero_found_at], nums[index]
                 last_none_zero_found_at += 1
-        
-            
+
 
 def test_solution():
     solution = Solution()
@@ -22,7 +21,7 @@ def test_solution():
         [0, 1, 12, 3, 0],
         [0, 0, 1],
         [1, 0, 1],
-        [0, 1, 0]
+        [0, 1, 0],
     ]
 
     answers = [
@@ -31,7 +30,7 @@ def test_solution():
         [1, 12, 3, 0, 0],
         [1, 0, 0],
         [1, 1, 0],
-        [1, 0, 0]
+        [1, 0, 0],
     ]
 
     for index in range(len(problems)):
