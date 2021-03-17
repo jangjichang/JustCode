@@ -69,3 +69,19 @@ checklist: lint typehint test
 앞서 언급한 Black, Pylint, Mypy와 같은 도구들을 에디터나 IDE에 통합하여 작업을 훨씬 수월하게 할 수 있다.
 
 파일을 저장할 때 또는 바로 가기를 통해 수정 작업을 하도록 설정하면 매우 편리하다.
+
+## 보완할 부분들
+
+### mac에서 makefile 에러 발생
+
+> make checklist
+
+make 명령어 입력시
+
+> xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+
+이러한 에러가 발생한다면 맥에서 제공하는커맨드 라인 유틸리티를 설치하자.
+
+> xcode-select --install
+
+### pylint 설정 값 변경하기
