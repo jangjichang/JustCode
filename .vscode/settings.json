@@ -7,6 +7,7 @@
         // "on"
     ],
     "python.pythonPath": "/Users/jangjichang/Library/Caches/pypoetry/virtualenvs/justcode-04-wEf7E-py3.9/bin/python",
+    "python.linting.mypyEnabled": true, // mypy로 코드 검사
     "editor.formatOnSave": true,
     "editor.tabSize": 4
 }
