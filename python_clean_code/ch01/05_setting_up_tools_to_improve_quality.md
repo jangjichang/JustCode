@@ -18,9 +18,7 @@
 
 정적 타입 검사 도구이다.
 
-```shell
-pip install mypy
-```
+> pip install mypy
 
 완벽한 도구는 아니어서 가끔 잘못된 탐지를 할 경우가 있다.
 이런 경우 다음과 같이 문장 끝에 주석을 추가하여 mypy가 무시하도록 할 수 있다.
@@ -31,11 +29,43 @@ type_no_ignore = "something" # type: ignore
 
 ## Pylint를 사용한 코드 검사
 
-```shell
-pip install pylint
-```
+> pip install pylint
 
 그 다음에 커맨드 창에서 pylint를 입력하기만 하면 된다.
 .pylintrc 파일을 통해 설정 값을 변경할 수 있다.
 
+## 자동 검사 설정
 
+리눅스 개발환경에서 빌드를 자동화하는 가장 일반적인 방법은 makefile을 사용하는 것이다.
+
+**Makefile**은 프로젝트를 컴파일하고 실행하기 위한 설정을 도와주는 파워풀한 도구이다.
+
+빌드외에도 포매팅 검사나 컨벤션 검사를 자동화하기 위해 사용할 수도 있다.
+
+```
+typehint:
+mypy src/ tests/
+
+test:
+pytest tests/
+
+lint:
+pylint src/ tests/
+
+checklist: lint typehint test
+
+.PHONY: typehint test lint checklist
+```
+
+이제 개발 머신과 CI 빌드 머신에서 실행할 커맨드는 다음과 같다.
+
+> make checklist
+
+이것은 다음 단계를 실행한다.
+1. 코딩 가이드라인 검사 (예를 들면 PEP-8)
+2. 올바른 타입을 사용했는지 검사
+3. 최종적으로 테스트 실행
+
+앞서 언급한 Black, Pylint, Mypy와 같은 도구들을 에디터나 IDE에 통합하여 작업을 훨씬 수월하게 할 수 있다.
+
+파일을 저장할 때 또는 바로 가기를 통해 수정 작업을 하도록 설정하면 매우 편리하다.
