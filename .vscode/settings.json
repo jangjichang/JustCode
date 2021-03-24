@@ -1,4 +1,5 @@
 {
+    "files.insertFinalNewline": true,
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
         "--line-length",
@@ -8,8 +9,13 @@
     ],
     "python.pythonPath": "/Users/jangjichang/Library/Caches/pypoetry/virtualenvs/justcode-04-wEf7E-py3.9/bin/python",
     "python.linting.mypyEnabled": true, // mypy로 코드 검사
+    "python.linting.pylintArgs": [
+        "--max-line-length=150",
+        "--disable=C0111,C0103"
+    ],
     "editor.formatOnSave": true,
     "editor.tabSize": 4
 }
 // --line-length 150 -> 한 줄에 최대 150글자 가능
 // fmt on -> 줄 바꿈 하지 않음, 리스트가 한 줄로 표시되는 것 때문에 추가했는데, 마지막 element에 ,를 붙이면 줄바꿈이 되지 않음 (trailing comma)
+// pylint args: https://docs.pylint.org/en/1.6.0/features.html
