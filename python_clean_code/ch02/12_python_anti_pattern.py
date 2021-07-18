@@ -20,11 +20,6 @@ def wrong_user_display(user_metadata: Union[dict, None] = None):
     return f"{name} {age}"
 
 
-print(wrong_user_display())
-print(wrong_user_display({"name": "Jane", "age": 25}))
-print(wrong_user_display())
-
-
 # bulit-in 타입 확장
 # list, str, dict와 같은 내장 타입을 확장하는 올바른 방법은 collections 모듈을 사용하는 것이다.
 
@@ -53,8 +48,18 @@ class GoodList(UserList):
             prefix = "홀수"
         return f"[{prefix} {value}]"
 
+    def remove(self, value):
+        raise ValueError
 
-g1 = GoodList((0, 1, 2, 3, 4, 5))
-print(g1[0])
-print(g1[1])
-print("".join(g1))
+
+if __name__ == "__main__":
+    # part 1
+    print(wrong_user_display())
+    print(wrong_user_display({"name": "Jane", "age": 25}))
+    print(wrong_user_display())
+
+    # part 2
+    g1 = GoodList((0, 1, 2, 3, 4, 5))
+    print(g1[0])
+    print(g1[1])
+    print("".join(g1))

@@ -14,4 +14,4 @@ print(dyn.attribute)
 print(dyn.fallback_test)
 dyn.__dict__["fallback_new"] = "new value"  # __getattr__ 메소드가 호출되지 않는다.
 print(dyn.fallback_new)
-print(getattr(dyn, "something", "default"))
+print(getattr(dyn, "something", "default"))  # __getattr__ 메소드가 호출되지 않는다. 그래서 에러가 안난다.

@@ -1,49 +1,52 @@
+from typing import Tuple
+
+
 class Boundaries:
-    def __init__(self, width, height):
+    def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
 
-    def __contains__(self, coord):
+    def __contains__(self, coord: Tuple[int, int]):
         x, y = coord
         return 0 <= x < self.width and 0 <= y < self.height
 
 
 class Grid:
-    def __init__(self, width, height):
+    def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
         self.limits = Boundaries(width, height)
         self.grid = [[False for _ in range(self.width)][:] for _ in range(self.height)]
 
-    def __contains__(self, coord):
+    def __contains__(self, coord: Tuple[int, int]):
         return coord in self.limits
 
-    def __getitem__(self, coord):
+    def __getitem__(self, coord: Tuple[int, int]):
+        x, y = coord
         if coord in self.limits:
-            x, y = coord
             return self.grid[x][y]
-        return IndexError
+        raise IndexError(f"{x}, {y} is outside the coordinates")
 
-    def __setitem__(self, coord, marked):
+    def __setitem__(self, coord: Tuple[int, int], marked: bool):
         if not isinstance(marked, bool):
-            raise TypeError
+            raise TypeError("Invalid type has been entered.")
 
+        x, y = coord
         if coord in self.limits:
-            x, y = coord
             self.grid[x][y] = marked
         else:
-            raise IndexError
+            raise IndexError(f"{x}, {y} is outside the coordinates")
 
     def __str__(self):
-        readable_str = ""
+        marked_coordinate = ""
         for row in self.grid:
             for element in row:
                 if element:
-                    readable_str += "O "
+                    marked_coordinate += "O "
                 else:
-                    readable_str += "X "
-            readable_str += "\n"
-        return readable_str
+                    marked_coordinate += "X "
+            marked_coordinate += "\n"
+        return marked_coordinate
 
 
 """
@@ -54,15 +57,23 @@ coord in self.limits는 의도를 직관적으로 표현하여 더 이상의 설
 """
 MARKED = True
 
-# TODO: grid, coords로 좌표를 마킹하는 클래스를 구현할 때, 외부에서 인덱스를 체크하는게 맞는지, 클래스에서 체크하는게 맞는지?
+
 def mark_coordinate(grid, coord):
-    if coord in grid:
-        grid[coord] = MARKED
+    grid[coord] = MARKED
 
 
-grid = Grid(3, 3)
-coords = [(1, 1), (2, 2), (4, 5)]
-for coord in coords:
-    mark_coordinate(grid, coord)
+if __name__ == "__main__":
+    grid = Grid(3, 3)
+    coords = [(1, 1), (2, 2), (1, 2)]
 
-print(grid)
+    for coord in coords:
+        mark_coordinate(grid, coord)
+
+    print(grid)
+
+    # 지도에서 범위 바깥을 표시할 때 에러 발생
+    # coord = (4, 5)
+    # mark_coordinate(grid, coord)
+
+    # 지도에서 범위 바깥의 값에 접근할 때 에러 발생
+    # print(grid[5, 8])

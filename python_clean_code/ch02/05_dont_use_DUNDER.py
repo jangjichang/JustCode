@@ -15,4 +15,5 @@ class Connetor:
 
 conn = Connetor("postgresql://localhost")
 conn.connect()
+print(conn.__dict__)
 conn.__timeout

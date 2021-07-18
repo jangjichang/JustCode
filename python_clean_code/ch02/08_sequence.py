@@ -23,7 +23,7 @@ class DateRangeSequence:
 
 
 s1 = DateRangeSequence(datetime(2019, 1, 1), datetime(2019, 1, 5))
-for day in s1:
+for day in s1:  # type: ignore
     print(day)
 
 print(s1[0])

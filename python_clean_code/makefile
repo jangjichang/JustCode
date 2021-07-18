@@ -1,11 +1,11 @@
 typehint:
-	mypy	ch01/
+	mypy	ch02/
 
 test:
-	pytest	ch01/
+	pytest	ch02/
 
 lint:
-	pylint --rcfile=/Users/jangjichang/Workspace/JustCode/python_clean_code/.pylintrc ch01/
+	pylint --rcfile=/Users/jangjichang/Workspace/JustCode/python_clean_code/.pylintrc --exit-zero ch02/
 
 checklist: lint typehint test
 

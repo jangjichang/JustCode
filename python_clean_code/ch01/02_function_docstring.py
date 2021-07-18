@@ -1,3 +1,6 @@
+from typing import List
+
+
 def my_function():
     """임의의 계산 수행"""
     return None

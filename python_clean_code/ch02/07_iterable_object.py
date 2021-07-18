@@ -50,7 +50,7 @@ print(r1_date)
 
 
 class DateRangeContainerIterable:
-    def __init__(self, start_date, end_date):
+    def __init__(self, start_date: datetime, end_date: datetime):
         self.start_date = start_date
         self.end_date = end_date
 
@@ -61,8 +61,8 @@ class DateRangeContainerIterable:
             current_day += timedelta(days=1)
 
 
-r1 = DateRangeContainerIterable(datetime(2019, 1, 1), datetime(2019, 1, 5))
-r1_date = ", ".join(map(str, r1))
+r2 = DateRangeContainerIterable(datetime(2019, 1, 1), datetime(2019, 1, 5))
+r2_date = ", ".join(map(str, r2))
 print("DateRangeContainerIterable")
-print(r1_date)
-print(max(r1))
+print(r2_date)
+print(max(r2))
