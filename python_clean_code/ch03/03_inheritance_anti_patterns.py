@@ -1,5 +1,5 @@
-from datetime import datetime
 import collections
+from datetime import datetime
 
 
 class TransactionalPolicy(collections.UserDict):

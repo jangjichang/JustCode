@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import List, Tuple, Dict
+from typing import Dict, List, Tuple
 
 
 def make_defaultdict(key_value_sequnce: List[Tuple[str, int]]) -> defaultdict:

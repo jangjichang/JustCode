@@ -1,5 +1,6 @@
 from typing import List, Set
 
+
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         if not len(strs):
@@ -22,7 +23,7 @@ class Solution:
                     common_prefix[index].add(character)
                 except IndexError:
                     common_prefix.append({character})
-                
+
         return common_prefix
 
     def get_longest_common_prefix(self, common_prefix: List[Set]) -> str:
@@ -38,11 +39,12 @@ class Solution:
 def test_longestCommonPrefix():
     solution = Solution()
 
-    assert solution.longestCommonPrefix(["flower", "flow", "flight"]) == 'fl'
-    assert solution.longestCommonPrefix(["flower", "flow"]) == 'flow'
-    assert solution.longestCommonPrefix([]) == ''
-    assert solution.longestCommonPrefix(["dog","racecar","car"]) == ''
+    assert solution.longestCommonPrefix(["flower", "flow", "flight"]) == "fl"
+    assert solution.longestCommonPrefix(["flower", "flow"]) == "flow"
+    assert solution.longestCommonPrefix([]) == ""
+    assert solution.longestCommonPrefix(["dog", "racecar", "car"]) == ""
+
 
 if __name__ == "__main__":
     solution = Solution()
-    solution.longestCommonPrefix(["reflower","flow","flight"])
+    solution.longestCommonPrefix(["reflower", "flow", "flight"])

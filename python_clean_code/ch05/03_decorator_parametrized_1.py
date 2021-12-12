@@ -1,6 +1,6 @@
 import logging
-from functools import wraps
 import random
+from functools import wraps
 
 
 class ControlledException(Exception):

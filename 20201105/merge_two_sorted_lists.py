@@ -4,9 +4,11 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         return 0
+
 
 def test_solution():
     solution = Solution()

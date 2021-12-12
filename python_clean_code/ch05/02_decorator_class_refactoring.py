@@ -1,5 +1,5 @@
-from datetime import datetime
 from dataclasses import dataclass
+from datetime import datetime
 
 
 def hide_field(field) -> str:
@@ -19,7 +19,10 @@ class EventSerializer:
         self.serialization_fields = serialization_fields
 
     def serialize(self, event) -> dict:
-        return {field: transformation(getattr(event, field)) for field, transformation in self.serialization_fields.items()}
+        return {
+            field: transformation(getattr(event, field))
+            for field, transformation in self.serialization_fields.items()
+        }
 
 
 class Serialization:
