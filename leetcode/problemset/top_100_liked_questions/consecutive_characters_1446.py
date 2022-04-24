@@ -4,7 +4,7 @@ class Solution:
         sub_max_power = 1
 
         for current_character_index in range(1, len(s)):
-            previous_character = s[current_character_index-1]
+            previous_character = s[current_character_index - 1]
             current_character = s[current_character_index]
 
             if current_character == previous_character:

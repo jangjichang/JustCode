@@ -10,6 +10,9 @@ isort = "==5.6.4"
 flake8 = "==3.9.2"
 flake8-isort = "==4.0.0"
 mypy = "==0.910"
+bson = "*"
+schema = "==0.7.4"
+black = "*"
 
 [dev-packages]
 
