@@ -11,6 +11,7 @@ def solution(intervals: List[List[int]]) -> List[List[int]]:
 
     merged = list()
 
+    # head의 end가 tail의 start보다 크면 머지한다. 합친다.
     for interval in intervals:
         if not merged or merged[-1][1] < interval[0]:  # 비어있거나, 마지막의 end 값이 이번 interval의 시작보다 작으면 넣는다.
             merged.append(interval)

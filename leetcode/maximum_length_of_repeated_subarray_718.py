@@ -1,4 +1,4 @@
-from typing import List, Tuple, Optional
+from typing import List, Optional, Tuple
 
 
 class Solution:
@@ -14,7 +14,9 @@ class Solution:
         """
         long_nums, short_nums = self.get_long_and_short_nums(nums1=nums1, nums2=nums2)
         for length in reversed(range(len(short_nums))):
-            maximum_length_of_repeated_subarray = self.get_maximum_subarray_length(long_nums, short_nums[0:length])
+            maximum_length_of_repeated_subarray = self.get_maximum_subarray_length(
+                long_nums, short_nums[0:length]
+            )
             if maximum_length_of_repeated_subarray:
                 return maximum_length_of_repeated_subarray
 
@@ -23,7 +25,7 @@ class Solution:
 
     def get_maximum_subarray_length(self, long_nums: List[int], short_nums: List[int]) -> Optional[int]:
         start = 0
-        for
+        # for
 
 
 def test_solution():
