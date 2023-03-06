@@ -10,6 +10,7 @@ class AbstractClass(ABC):
     Concrete subclasses should implement these operations, but leave the
     template method itself intact.
     """
+
     def template_method(self) -> None:
         """
         The template method defines the skeleton of an algorithm.
@@ -58,6 +59,7 @@ class ConcreteClass1(AbstractClass):
     Concrete classes have to implement all abstract operations of the base
     class. They can also override some operations with a default implementation.
     """
+
     def required_operations1(self) -> None:
         print("ConcreteClass1 says: Implemented Operation1")
 
@@ -70,6 +72,7 @@ class ConcreteClass2(AbstractClass):
     Usually, concrete classes override only a fraction of base class'
     operations.
     """
+
     def required_operations1(self) -> None:
         print("ConcreteClass2 says: Implemented Operation1")
 
