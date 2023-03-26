@@ -3,13 +3,13 @@ from typing import List
 
 class Solution:
     def search_range(self, nums: List[int], target: int) -> List[int]:
-        index = self.find_index(nums=nums, target=target, start=0, end=len(nums)-1)
+        index = self.find_index(nums=nums, target=target, start=0, end=len(nums) - 1)
         if index == -1:
             return [-1, -1]
         else:
             return [
                 self.find_start_index(nums=nums, target=target, start=index),
-                self.find_end_index(nums=nums, target=target, end=index)
+                self.find_end_index(nums=nums, target=target, end=index),
             ]
 
     def find_index(self, nums: List[int], target: int, start: int, end: int) -> int:
@@ -20,25 +20,25 @@ class Solution:
         if nums[mid] == target:
             return mid
         elif nums[mid] > target:
-            return self.find_index(nums=nums, target=target, start=start, end=mid-1)
+            return self.find_index(nums=nums, target=target, start=start, end=mid - 1)
         else:
-            return self.find_index(nums=nums, target=target, start=mid+1, end=end)
+            return self.find_index(nums=nums, target=target, start=mid + 1, end=end)
 
     def find_start_index(self, nums: List[int], target: int, start: int) -> int:
         if nums[start] == target:
-            if start-1 < 0:
+            if start - 1 < 0:
                 return start
             else:
-                return self.find_start_index(nums=nums, target=target, start=start-1)
+                return self.find_start_index(nums=nums, target=target, start=start - 1)
         else:
             return start + 1
 
     def find_end_index(self, nums: List[int], target: int, end: int) -> int:
         if nums[end] == target:
-            if end+1 >= len(nums):
+            if end + 1 >= len(nums):
                 return end
             else:
-                return self.find_end_index(nums=nums, target=target, end=end+1)
+                return self.find_end_index(nums=nums, target=target, end=end + 1)
         else:
             return end - 1
 
@@ -64,4 +64,3 @@ def test_search_range():
     assert solution.search_range(nums=[], target=0) == [-1, -1]
     assert solution.search_range(nums=[1], target=1) == [0, 0]
     assert solution.search_range(nums=[2, 2], target=2) == [0, 1]
-
